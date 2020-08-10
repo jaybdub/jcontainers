@@ -29,26 +29,5 @@ RUN vim +PluginInstall +qall
 RUN cd ~/.vim/bundle/YouCompleteMe \
   && ./install.py --ts-completer
 
-## install YCM (TODO: add C/C++ completion)
-#RUN mkdir ~/ycm_build \
-#  && cd ~/ycm_build \
-#  && cmake -G "Unix Makefiles" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp \
-#  && cmake --build . --target ycm_core --config Release
-#
-### install YCM watchdog
-#RUN cd ~/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/watchdog_deps/watchdog \
-#  && rm -rf build/lib3 \
-#  && python3 setup.py build --build-base=build/3 --build-lib=build/lib3
-#
-## install nodejs and npm
-#RUN apt-get install -y \
-#  nodejs \
-#  npm 
-#
-## update node
-#RUN npm cache clean -f \
-#  && npm install -g n
-#
-# install javascript autocompletion
-#RUN cd ~/.vim/bundle/YouCompleteMe/third_party/ycmd \
-  #&& npm install -g --prefix third_party/tsserver typescript .
+# install yapf for python formatting
+RUN pip install yapf
